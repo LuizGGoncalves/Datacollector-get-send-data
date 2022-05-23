@@ -46,9 +46,9 @@ class DataContainerScheduledTest {
         meta.put("3. Digital Currency Name","BitCoin");
         currencyMap.put(LocalDate.now().toString(),currency);
         DataContainer dataContainer = new DataContainer(meta,currencyMap);
-        ResponseEntity<DataContainer> response = new ResponseEntity<DataContainer>(dataContainer, HttpStatus.ACCEPTED);
+        ResponseEntity<DataContainer> response = ResponseEntity.status(200).body(dataContainer);
 
-        Mockito.when(alphaVantageCliente.getDataContainer("BitCoin")).thenReturn(dataContainer);
+        Mockito.when(alphaVantageCliente.getDataContainer("BitCoin")).thenReturn(ResponseEntity.status(201).body(dataContainer));
         Mockito.when(apiStoreDataClient.postCurreny(dataContainer, LocalDate.now())).thenReturn(201);
 
         currencyService.sendDataApiStore("BitCoin");

@@ -11,7 +11,7 @@ import java.io.IOException;
 public class DataContainerScheduled {
 
     @Autowired
-    CurrencyService currencyService;
+    private CurrencyService currencyService;
 
     @Scheduled(fixedDelay = 1000 * 60 * 20)
     public void getBtcData() throws IOException, InterruptedException {

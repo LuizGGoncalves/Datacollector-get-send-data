@@ -2,8 +2,14 @@ package com.apiLoadData.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
+@Getter
+@Setter
+@NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Currency {
     private String currencyName;
@@ -16,9 +22,6 @@ public class Currency {
     @JsonProperty("4b. close (USD)")
     private Double usdClose;
 
-    public Currency() {
-    }
-
     public Currency(String currencyName, Double brlOpen, Double usdOpen, Double brlClose, Double usdClose) {
         this.currencyName = currencyName;
         this.brlOpen = brlOpen;
@@ -26,45 +29,4 @@ public class Currency {
         this.brlClose = brlClose;
         this.usdClose = usdClose;
     }
-
-    public Double getBrlOpen() {
-        return brlOpen;
-    }
-
-    public void setBrlOpen(Double brlOpen) {
-        this.brlOpen = brlOpen;
-    }
-
-    public Double getUsdOpen() {
-        return usdOpen;
-    }
-
-    public void setUsdOpen(Double usdOpen) {
-        this.usdOpen = usdOpen;
-    }
-
-    public Double getBrlClose() {
-        return brlClose;
-    }
-
-    public void setBrlClose(Double brlClose) {
-        this.brlClose = brlClose;
-    }
-
-    public Double getUsdClose() {
-        return usdClose;
-    }
-
-    public void setUsdClose(Double usdClose) {
-        this.usdClose = usdClose;
-    }
-
-    public String getCurrencyName() {
-        return currencyName;
-    }
-
-    public void setCurrencyName(String currencyName) {
-        this.currencyName = currencyName;
-    }
-
 }

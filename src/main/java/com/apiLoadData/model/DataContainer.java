@@ -2,10 +2,15 @@ package com.apiLoadData.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Map;
 
-
+@Getter
+@Setter
+@NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DataContainer {
     @JsonProperty("Meta Data")
@@ -13,27 +18,9 @@ public class DataContainer {
     @JsonProperty("Time Series (Digital Currency Daily)")
     private Map<String,Currency> datas;
 
-    public DataContainer() {
-    }
 
     public DataContainer(Map<String, String> meta, Map<String, Currency> datas) {
         this.meta = meta;
         this.datas = datas;
-    }
-
-    public Map<String, Currency> getDatas() {
-        return datas;
-    }
-
-    public void setDatas(Map<String, Currency> datas) {
-        this.datas = datas;
-    }
-
-    public Map<String, String> getMeta() {
-        return meta;
-    }
-
-    public void setMeta(Map<String, String> meta) {
-        this.meta = meta;
     }
 }

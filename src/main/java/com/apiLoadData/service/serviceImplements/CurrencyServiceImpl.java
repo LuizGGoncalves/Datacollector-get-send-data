@@ -26,11 +26,11 @@ public class CurrencyServiceImpl implements CurrencyService {
     public void sendDataApiStore(String crypto) throws IOException, InterruptedException {
         LocalDate today = LocalDate.now();
 //      DataContainer data = getContainerUseHttpRequest(crypto);
-        DataContainer data = alphaVantageCliente.getDataContainer(crypto);
+        DataContainer data = alphaVantageCliente.getDataContainer(crypto).getBody();
         data.getDatas().get(today.toString()).setCurrencyName(data.getMeta().get("3. Digital Currency Name"));
         System.out.println(apiStoreDataClient.postCurreny(data,today)+" - "
                 + data.getMeta().get("3. Digital Currency Name")
-                +  " - " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")).toString());
+                +  " - " + LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
     }
 
 }
